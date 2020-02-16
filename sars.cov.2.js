@@ -1,21 +1,23 @@
 class JapanPref{
-    color(pref, color){
+    color(pref, color1, color2){
         if(pref == "Hokkaido"){
-            this.color("Hopporyodo", color)
+            this.color("Hopporyodo", color1, color2)
         }
         let e = document.getElementById(pref)
         for(let i = 0; i < e.children.length; i++){
-            e.children[i].style.fill = color
+            e.children[i].style.fill = color1
+            e.children[i].style.stroke = color2
         }
     }
 
     run(){
-        let size = JapanPref.json.size
+        let size = JapanPref.obj.size
         for(let i = 0; i < JapanPref.list.length; i++){
             let pref = JapanPref.list[i]
-            let n = JapanPref.json[pref]
+            let n = JapanPref.obj[pref]
             if(n){
-                this.color(pref, JapanPref.colorRed[1+parseInt(Math.log(n)*3)])
+                let f = 1 + parseInt(Math.log(n) * 3)
+                this.color(pref, JapanPref.colorRed[f + 1], JapanPref.colorRed[f + 2])
             }
         }
     }
@@ -42,22 +44,27 @@ JapanPref.list = ["Hokkaido", "Aomori", "Iwate", "Akita", "Yamagata", "Miyagi", 
     "Fukuoka", "Saga", "Nagasaki", "Kumamoto", "Oita", "Miyazaki", "Kagoshima",
     "Okinawa"
 ]
+JapanPref.obj = {}
 
-let imgJapan = new XMLHttpRequest
-imgJapan.open('GET', "Map_of_Japan_010.svg")
-imgJapan.responseType = "image/svg"
-imgJapan.send()
+function main(){
+    let imgJapan = new XMLHttpRequest
+    imgJapan.open('GET', "Map_of_Japan_010.svg")
+    imgJapan.responseType = "image/svg"
+    imgJapan.send()
 
-imgJapan.onload = function() {
-    document.getElementById("imgJapan").innerHTML = imgJapan.response
+    imgJapan.onload = function() {
+        document.getElementById("imgJapan").innerHTML = imgJapan.response
 
-    let json = new XMLHttpRequest
-    json.open("GET", "sars.cov.2.json")
-    json.responseType = "application/json"
-    json.send()
-    json.onload = function(){
-        JapanPref.json = JSON.parse(json.response)
-        jp = new JapanPref
-        jp.run()
+        let json = new XMLHttpRequest
+        json.open("GET", "sars.cov.2.json")
+        json.responseType = "application/json"
+        json.send()
+        json.onload = function(){
+            JapanPref.json = JSON.parse(json.response)
+            jp = new JapanPref
+            jp.run()
+        }
     }
 }
+
+// main()
