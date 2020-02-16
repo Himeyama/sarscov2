@@ -1,0 +1,161 @@
+---
+---
+
+.highlight
+    border-radius: 8px
+
+    table
+        td
+            padding: 5px
+        pre
+            margin: 0
+
+    .cm, .c1, .c, .cd
+        color: #999988
+        font-style: italic
+
+    .cp, .cs, .gh
+        color: #999999
+        font-weight: bold
+
+    .err
+        color: #a61717
+        background-color: #e3d2d2
+
+    .gd
+        background-color: #ffdddd
+
+    .ge
+        font-style: italic
+
+    .gr
+        color: #aa0000
+
+    .gi
+        background-color: #ddffdd
+
+    .go
+        color: #888888
+
+    .gp
+        color: #555555
+
+    .gs
+        font-weight: bold
+
+    .gu
+        color: #aaaaaa
+
+    .gt
+        color: #aa0000
+
+    .kc
+        font-weight: bold
+
+    .kd, .kn, .kp, .kr, .kt, .k, .kv
+        font-weight: bold
+
+    .mf, .mh, .il, .mi, .mo, .m, .mb, .mx
+        color: #009999
+
+    .sb, .sc, .sd, .s2, .se, .sh, .si, .sx, .s1, .s
+        color: #d14
+
+    .sr
+        color: #009926
+
+    .ss
+        color: #990073
+
+    .na
+        color: #008080
+
+    .bp
+        color: #999999
+
+    .nb
+        color: #0086B3
+
+    .nc
+        color: #445588
+        font-weight: bold
+
+    .no
+        color: #008080
+
+    .nd
+        color: #3c5d5d
+        font-weight: bold
+
+    .ni
+        color: #800080
+
+    .ne
+        color: #990000
+        font-weight: bold
+
+    .nf
+        color: #990000
+        font-weight: bold
+
+    .nl
+        color: #990000
+        font-weight: bold
+
+    .nn
+        color: #555555
+
+    .nt
+        color: #000080
+
+    .vc
+        color: #008080
+
+    .vg
+        color: #008080
+
+    .vi
+        color: #008080
+
+    .nv
+        color: #008080
+
+    .ow
+        font-weight: bold
+    
+    .o
+        font-weight: bold
+
+    .w
+        color: #bbbbbb
+
+    background-color: #333
+
+
+pre.highlight
+    padding: 16px
+    overflow-x: auto
+
+div.highlight
+    font-family: 'Ubuntu Mono',monospace
+    color: #efefef
+    pre.highlight
+    
+        padding: 16px
+        overflow-x: auto
+
+    pre
+        code
+            code
+                counter-increment: linenumber
+        
+            & > code::before
+                content: counter(linenumber)
+                width: 32px
+                display: inline-block
+                text-align: right
+                margin-right: 8px
+                font-weight: normal
+                color: #ccc
+                padding-right: 12px
+
