@@ -43,20 +43,20 @@ JapanPref.list = ["Hokkaido", "Aomori", "Iwate", "Akita", "Yamagata", "Miyagi", 
     "Okinawa"
 ]
 
-let json = new XMLHttpRequest
-json.open("GET", "sars.cov.2.json")
-json.responseType = "application/json"
-json.send()
-
 let imgJapan = new XMLHttpRequest
 imgJapan.open('GET', "Map_of_Japan_010.svg")
 imgJapan.responseType = "image/svg"
 imgJapan.send()
 
-json.onload = function(){
-    JapanPref.json = JSON.parse(json.response)
-    imgJapan.onload = function() {
-        document.getElementById("imgJapan").innerHTML = imgJapan.response
+imgJapan.onload = function() {
+    document.getElementById("imgJapan").innerHTML = imgJapan.response
+
+    let json = new XMLHttpRequest
+    json.open("GET", "sars.cov.2.json")
+    json.responseType = "application/json"
+    json.send()
+    json.onload = function(){
+        JapanPref.json = JSON.parse(json.response)
         jp = new JapanPref
         jp.run()
     }
