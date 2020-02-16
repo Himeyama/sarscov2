@@ -3,7 +3,7 @@ layout: default
 title: SARS-CoV-2 感染者マップ
 ---
 
-<h1><time id="date"></time>の感染者数</h1>
+<h1><time id="date"></time></h1>
 
 <div id="imgJapan"></div>
 

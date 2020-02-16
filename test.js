@@ -93,13 +93,13 @@ function main(){
 
                 jp.run()
                 let w = new Era(date)
-                document.getElementById("date").innerText = w.getWareki()
+                document.getElementById("date").innerText = `${w.getWareki()}の感染者数`
 
                 if(DateAnime.i == DateAnime.dateRange.length - 1){
                     clearInterval(dateAnime)
                 }
                 DateAnime.i++
-            }, 300)
+            }, 1000)
 
         }
     }
