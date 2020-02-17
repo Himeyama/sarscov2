@@ -6,6 +6,7 @@ class CSV{
         for(let i in lines){
             csv.csv[i] = lines[i].split(", ")
         }
+        csv = csv.filter(function(e){return e != ""})
         return csv
     }
 
