@@ -100,7 +100,7 @@ function main(){
                     clearInterval(dateAnime)
                 }
                 DateAnime.i++
-            }, 1000)
+            }, 100)
 
         }
     }
