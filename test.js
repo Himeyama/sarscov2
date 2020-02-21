@@ -45,13 +45,13 @@ class DateAnime{}
 
 function main(){
     let imgJapan = new XMLHttpRequest
-    imgJapan.open('GET', "Map_of_Japan_010.svg")
+    imgJapan.open('GET', "https://himeyama.github.io/sarscov2/Map_of_Japan_010.svg")
     imgJapan.responseType = "image/svg"
     imgJapan.send()
 
     imgJapan.onload = function() {
         document.getElementById("imgJapan").innerHTML = imgJapan.response
-        csv = CSV.getRequest("data.csv")
+        csv = CSV.getRequest("https://himeyama.github.io/sarscov2/data.csv")
         csv.req.onload = function(){
             csv = CSV.parse(csv.req.response)
             list = SARSCOV2.ary2dict(csv.csv)
