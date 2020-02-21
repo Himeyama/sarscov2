@@ -16,7 +16,7 @@ class JapanPref{
             let pref = JapanPref.list[i]
             let n = JapanPref.obj[pref]
             if(n){
-                let f = 1 + parseInt(Math.log(n) * 2)
+                let f = 1 + parseInt(Math.log(n))
                 this.color(pref, JapanPref.colorRed[f + 1], JapanPref.colorRed[f + 2])
             }
         }
