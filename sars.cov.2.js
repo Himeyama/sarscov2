@@ -68,3 +68,58 @@ function main(){
 }
 
 // main()
+
+class Pref{
+    static toJ(pref){
+        let list = {
+            "Hokkaido": "北海道",
+            "Aomori": "青森",
+            "Iwate": "岩手",
+            "Akita": "秋田",
+            "Yamagata": "山形",
+            "Miyagi": "宮城",
+            "Fukushima": "福島",
+            "Ibaraki": "茨城",
+            "Chiba": "千葉",
+            "Tokyo": "東京", 
+            "Kanagawa": "神奈川", 
+            "Saitama": "埼玉", 
+            "Tochigi": "栃木", 
+            "Gumma": "群馬",
+            "Yamanashi": "山梨", 
+            "Shizuoka": "静岡", 
+            "Aichi": "愛知", 
+            "Gifu": "岐阜", 
+            "Nigata": "新潟", 
+            "Nagano": "長野", 
+            "Toyama": "富山", 
+            "Ishikawa": "石川",
+            "Fukui": "福井", 
+            "Mie": "三重", 
+            "Shiga": "滋賀", 
+            "Kyoto": "京都", 
+            "Osaka": "大阪", 
+            "Nara": "奈良", 
+            "Wakayama": "和歌山",
+            "Hyogo": "兵庫",
+            "Okayama": "岡山",
+            "Hiroshima": "広島", 
+            "Tottori": "鳥取", 
+            "Shimane": "島根", 
+            "Yamaguchi": "山口",
+            "Kagawa": "香川", 
+            "Ehime": "愛媛", 
+            "Kochi": "高知", 
+            "Tokushima": "徳島",
+            "Fukuoka": "福岡", 
+            "Saga": "佐賀", 
+            "Nagasaki": "長崎", 
+            "Kumamoto": "熊本", 
+            "Oita": "大分", 
+            "Miyazaki": "宮崎", 
+            "Kagoshima": "鹿児島",
+            "Okinawa": "沖縄"
+        }
+        return `${list[pref]}${pref == "Hokkaido" ? "" : (pref == "Kyoto" || pref == "Osaka" ? "府" : (pref == "Tokyo" ? "都" : "県"))}`
+    }
+}

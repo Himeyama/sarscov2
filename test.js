@@ -18,7 +18,6 @@ class CSV{
         csv.req.send()
         return csv
     }
-
 }
 
 class SARSCOV2{
@@ -51,7 +50,8 @@ function main(){
 
     imgJapan.onload = function() {
         document.getElementById("imgJapan").innerHTML = imgJapan.response
-        csv = CSV.getRequest("https://himeyama.github.io/sarscov2/data.csv")
+        csv = CSV.getRequest(`https://himeyama.github.io/sarscov2/data.csv?${parseInt(Math.random() * 10000)}`)
+        // csv = CSV.getRequest(`data.csv?${parseInt(Math.random() * 10000)}`)
         csv.req.onload = function(){
             csv = CSV.parse(csv.req.response)
             list = SARSCOV2.ary2dict(csv.csv)
@@ -82,6 +82,7 @@ function main(){
             let jp = new JapanPref
             let dateAnime = setInterval(function(){
                 let date = DateAnime.dateRange[DateAnime.i]
+                let w = new Era(date)
                 if(list[String(date)]){
                     // console.log( list[String(date)] )
                     for(let i = 0; i < list[String(date)].length; i++){
@@ -89,12 +90,14 @@ function main(){
                             JapanPref.obj[list[String(date)][i].pref] = 0
                         }
                         JapanPref.obj[list[String(date)][i].pref] += list[String(date)][i].people
+                        // document.getElementById("date").innerText = `${w.getWareki()}`
+                        document.getElementById("pref").innerText = `${w.getWareki()} ${Pref.toJ(list[String(date)][i].pref)} (+${list[String(date)][i].people})\n${document.getElementById("pref").innerText}`
                     }
                 }
 
                 jp.run()
-                let w = new Era(date)
-                document.getElementById("date").innerText = `${w.getWareki()}`
+                
+                // document.getElementById("date").innerText = `${w.getWareki()}`
 
                 if(DateAnime.i == DateAnime.dateRange.length - 1){
                     clearInterval(dateAnime)

@@ -12,9 +12,8 @@ title: 新型コロナウイルス SARS-CoV-2 感染者マップ
 <meta name="robots" content="index,follow">
 <meta name="content-language" content="ja">
 
-<h1><time id="date"></time></h1>
-
 <div id="imgJapan"></div>
+<div id="pref"></div>
 
 <script src="era.js"></script>
 <script src="sars.cov.2.js"></script>
