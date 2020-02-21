@@ -48,7 +48,7 @@ JapanPref.obj = {}
 
 function main(){
     let imgJapan = new XMLHttpRequest
-    imgJapan.open('GET', "Map_of_Japan_010.svg")
+    imgJapan.open('GET', "https://himeyama.github.io/sarscov2/Map_of_Japan_010.svg")
     imgJapan.responseType = "image/svg"
     imgJapan.send()
 
